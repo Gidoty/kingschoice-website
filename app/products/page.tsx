@@ -3,6 +3,7 @@ import { BUSINESS } from '@/lib/constants';
 import ProductsExplorer from '@/components/ProductsExplorer';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
 import Reveal from '@/components/Reveal';
+import { DownloadIcon } from '@/components/icons';
 
 export const metadata: Metadata = {
   title: 'Products & Catalogue',
@@ -22,6 +23,16 @@ export default function ProductsPage() {
               Browse our full range below. For pricing, availability, or anything you don&apos;t
               see listed, chat with us on WhatsApp &mdash; we reply fast.
             </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <a
+              href="/kingschoice-catalogue.pdf"
+              download
+              className="mt-6 inline-flex items-center gap-2 rounded-lg border-2 border-brand px-5 py-2.5 text-sm font-semibold text-brand transition hover:bg-brand hover:text-white"
+            >
+              <DownloadIcon className="h-4 w-4" />
+              Download Catalogue (PDF)
+            </a>
           </Reveal>
         </div>
       </div>

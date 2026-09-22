@@ -4,7 +4,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppFAB from '@/components/WhatsAppFAB';
-import { BUSINESS } from '@/lib/constants';
+import { BUSINESS, LOCATIONS } from '@/lib/constants';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -47,10 +47,32 @@ export const metadata: Metadata = {
   },
 };
 
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': LOCATIONS.map((loc) => ({
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/#${loc.name.toLowerCase().replace(/\s+/g, '-')}`,
+    name: `${BUSINESS.name} — ${loc.name}`,
+    parentOrganization: BUSINESS.name,
+    telephone: `+${BUSINESS.phoneIntl}`,
+    email: BUSINESS.email,
+    url: SITE_URL,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: loc.address,
+      addressCountry: 'NG',
+    },
+  })),
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
       <body className="flex min-h-screen flex-col bg-ink font-sans text-ink">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
         <Header />
         <main className="bg-white">{children}</main>
         <Footer />
