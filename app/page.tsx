@@ -21,9 +21,9 @@ export default function HomePage() {
               Medical &amp; Laboratory Equipment, Delivered Across Nigeria
             </h1>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-slate-600">
-              {BUSINESS.name} supplies hospitals, clinics and laboratories with diagnostic
-              equipment, lab instruments, hospital furniture and consumables. No cart, no
-              checkout &mdash; message us on WhatsApp and we&apos;ll sort out the rest.
+              {BUSINESS.name} supplies hospitals, clinics and laboratories with lab equipment,
+              diagnostics, test kits and pharmaceutical consumables. No cart, no checkout
+              &mdash; message us on WhatsApp and we&apos;ll sort out the rest.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -90,8 +90,8 @@ export default function HomePage() {
           <div>
             <h2 className="text-2xl font-bold text-navy sm:text-3xl">What We Supply</h2>
             <p className="mt-2 max-w-xl text-sm text-slate-600">
-              Five categories covering diagnostic, laboratory, furniture, consumable and
-              reagent needs &mdash; browse the full catalogue and order any item on WhatsApp.
+              Laboratory equipment, diagnostics, test kits and pharmaceutical consumables
+              &mdash; browse the full catalogue and order any item on WhatsApp.
             </p>
           </div>
           <Link href="/products" className="text-sm font-semibold text-blue hover:underline">

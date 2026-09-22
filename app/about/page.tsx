@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { BUSINESS, generalWaLink } from '@/lib/constants';
+import { BUSINESS, VISION, MISSION, generalWaLink } from '@/lib/constants';
 import { WhatsAppIcon, CheckIcon } from '@/components/icons';
 
 export const metadata: Metadata = {
@@ -31,10 +31,10 @@ export default function AboutPage() {
 
       <div className="mt-8 space-y-5 text-base leading-relaxed text-slate-700">
         <p>
-          {BUSINESS.name} is a Nigerian distributor of medical and laboratory equipment, supplying
-          hospitals, clinics, diagnostic centres and laboratories with the tools they need to run
-          their facilities &mdash; from diagnostic devices and lab analyzers to hospital furniture,
-          consumables and test kits.
+          {BUSINESS.name} is a Nigerian distributor of laboratory equipment, pharmaceutical and
+          health consumables, and allied medical supplies &mdash; supplying hospitals, clinics,
+          diagnostic centres and laboratories with the tools they need to run their facilities,
+          from lab analyzers and microscopes to test kits, gloves and general consumables.
         </p>
         <p>
           We operate from three locations &mdash; two in Lagos and one in Enugu &mdash; and deliver
@@ -53,6 +53,24 @@ export default function AboutPage() {
             <p className="mt-2 text-sm leading-relaxed text-slate-600">{v.body}</p>
           </div>
         ))}
+      </div>
+
+      <div className="mt-14 grid gap-6 sm:grid-cols-2">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-navy">Our Vision</h2>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">{VISION}</p>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-navy">Our Mission</h2>
+          <ol className="mt-3 space-y-2.5 text-sm leading-relaxed text-slate-600">
+            {MISSION.map((item, i) => (
+              <li key={i} className="flex gap-2.5">
+                <span className="font-semibold text-teal">{i + 1}.</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
 
       <div className="mt-12 rounded-xl border border-slate-200 bg-offwhite p-6">

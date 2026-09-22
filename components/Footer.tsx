@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { BUSINESS, LOCATIONS, mailtoLink } from '@/lib/constants';
 import { PhoneIcon, MailIcon, PinIcon } from './icons';
 
@@ -7,7 +8,10 @@ export default function Footer() {
     <footer className="border-t border-slate-200 bg-navy text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div>
-          <h2 className="text-lg font-bold">{BUSINESS.name}</h2>
+          <div className="flex items-center gap-2.5">
+            <Image src="/logo-icon.png" alt="" width={36} height={36} className="h-9 w-9" />
+            <h2 className="text-lg font-bold">{BUSINESS.name}</h2>
+          </div>
           <p className="mt-2 text-sm italic text-white/70">{BUSINESS.motto}</p>
           <p className="mt-4 text-xs text-white/50">BN: {BUSINESS.bn}</p>
         </div>

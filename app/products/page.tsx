@@ -6,7 +6,7 @@ import ProductCard from '@/components/ProductCard';
 export const metadata: Metadata = {
   title: `Products & Catalogue | ${BUSINESS.name}`,
   description:
-    'Browse diagnostic equipment, laboratory equipment, hospital furniture, consumables and reagents from Kingschoice Med & More. Order any item directly on WhatsApp.',
+    'Browse laboratory equipment, diagnostics, test kits and pharmaceutical consumables from Kingschoice Med & More. Order any item directly on WhatsApp.',
 };
 
 export default function ProductsPage() {
