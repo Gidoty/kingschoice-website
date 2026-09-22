@@ -1,53 +1,53 @@
 import type { Metadata } from 'next';
 import { BUSINESS } from '@/lib/constants';
-import { categories, productsByCategory } from '@/lib/products';
-import ProductCard from '@/components/ProductCard';
+import ProductsExplorer from '@/components/ProductsExplorer';
+import WhatsAppCTA from '@/components/WhatsAppCTA';
+import Reveal from '@/components/Reveal';
 
 export const metadata: Metadata = {
-  title: `Products & Catalogue | ${BUSINESS.name}`,
+  title: 'Products & Catalogue',
   description:
-    'Browse laboratory equipment, diagnostics, test kits and pharmaceutical consumables from Kingschoice Med & More. Order any item directly on WhatsApp.',
+    'Browse laboratory equipment, diagnostic devices, consumables, reagents & test kits, PPE and pharmaceuticals from Kingschoice Med & More.',
 };
 
 export default function ProductsPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <p className="text-sm font-semibold uppercase tracking-wide text-teal">Catalogue</p>
-      <h1 className="mt-3 text-3xl font-bold text-navy sm:text-4xl">Products</h1>
-      <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-        Every product below can be ordered directly on WhatsApp &mdash; tap &ldquo;Order on
-        WhatsApp&rdquo; and we&apos;ll open a chat with the item already filled in. Don&apos;t see
-        what you need? Message us and we&apos;ll help you find it.
-      </p>
-
-      <nav aria-label="Jump to category" className="mt-8 flex flex-wrap gap-2">
-        {categories.map((cat) => (
-          <a
-            key={cat.slug}
-            href={`#${cat.slug}`}
-            className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-ink transition hover:border-blue hover:text-blue"
-          >
-            {cat.name}
-          </a>
-        ))}
-      </nav>
-
-      <div className="mt-12 space-y-16">
-        {categories.map((cat) => {
-          const items = productsByCategory(cat.slug);
-          return (
-            <section key={cat.slug} id={cat.slug} className="scroll-mt-24">
-              <h2 className="text-xl font-bold text-navy sm:text-2xl">{cat.name}</h2>
-              <p className="mt-1.5 max-w-2xl text-sm text-slate-600">{cat.description}</p>
-              <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {items.map((product) => (
-                  <ProductCard key={product.slug} product={product} />
-                ))}
-              </div>
-            </section>
-          );
-        })}
+    <div>
+      <div className="border-b border-black/5 bg-offwhite">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-wide text-brand">Catalogue</p>
+            <h1 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">Products</h1>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">
+              Browse our full range below. For pricing, availability, or anything you don&apos;t
+              see listed, chat with us on WhatsApp &mdash; we reply fast.
+            </p>
+          </Reveal>
+        </div>
       </div>
+
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <ProductsExplorer />
+      </div>
+
+      <section className="border-t border-black/5 bg-brand-dark">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-16 text-center sm:px-6">
+          <Reveal>
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">
+              Don&apos;t see what you need, or want pricing?
+            </h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="max-w-xl text-sm text-white/70">
+              Chat with us on WhatsApp and we&apos;ll help you find it, confirm availability and
+              get you a price &mdash; usually within minutes.
+            </p>
+          </Reveal>
+          <Reveal delay={160}>
+            <WhatsAppCTA size="lg" label={`Chat with ${BUSINESS.name}`} />
+          </Reveal>
+        </div>
+      </section>
     </div>
   );
 }

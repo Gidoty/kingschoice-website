@@ -1,15 +1,21 @@
+import Image from 'next/image';
 import type { Product } from '@/lib/products';
-import WhatsAppButton from './WhatsAppButton';
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
-      <div>
-        <h3 className="text-base font-semibold text-ink">{product.name}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-slate-600">{product.description}</p>
+    <div className="group overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+      <div className="relative aspect-square overflow-hidden bg-offwhite">
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+          className="object-cover transition duration-300 group-hover:scale-105"
+        />
       </div>
-      <div className="mt-5">
-        <WhatsAppButton productName={product.name} full />
+      <div className="p-4">
+        <h3 className="text-sm font-semibold text-ink">{product.name}</h3>
+        <p className="mt-1 text-xs leading-relaxed text-ink/60">{product.description}</p>
       </div>
     </div>
   );

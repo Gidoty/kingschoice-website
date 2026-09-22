@@ -5,6 +5,7 @@ export const BUSINESS = {
   phoneIntl: '2348132399423',
   email: 'kingschoicemedicals@gmail.com',
   bn: '3211826',
+  tagline: 'Distributors of laboratory equipment, pharmaceutical & health consumables and general merchandise',
 };
 
 export const LOCATIONS = [
@@ -23,33 +24,57 @@ export const LOCATIONS = [
 ];
 
 export const DELIVERY = {
-  lagos: 'Free delivery within Lagos',
-  outsideLagos: '30% discount on delivery outside Lagos',
+  lagos: {
+    heading: 'Within Lagos',
+    price: 'Free delivery',
+    time: 'Same day or within 24 hours',
+  },
+  outsideLagos: {
+    heading: 'Outside Lagos',
+    price: '30% off standard delivery rate',
+    time: 'Delivered within 2–3 days',
+  },
 };
 
 export const VISION =
-  "To become one of the world's leading supply companies in quality medicals & laboratory equipment with excellent service delivery.";
+  'To become one of the world’s leading supply companies in quality medicals and laboratory equipment with excellent service delivery.';
 
 export const MISSION = [
-  'To improve the health & wellness of people by providing professional partners with the best quality products & general services.',
-  'To collaborate with healthcare & academic professionals in organizing & participating in social activities relating to health care support & laboratory practice.',
-  'To redefine and manage the allied supply chain with all integrity, ethical standards and a high level of commitment.',
-  'To ensure availability & prompt delivery of all laboratory equipment, clinical support equipment & training.',
-  'To build strong, formidable professional partnerships within the health care & educational sector.',
+  'Improve the health and wellness of people by providing quality products and services.',
+  'Collaborate with healthcare and academic professionals to support health care and laboratory practice.',
+  'Redefine the supply chain with integrity and the highest ethical standards.',
+  'Ensure prompt availability and delivery of equipment, clinical support and training.',
+  'Build strong, professional partnerships within healthcare and education.',
 ];
 
 export const SOCIAL = {
-  instagram: 'kingschoice',
-  facebook: 'kingschoice',
+  instagram: { handle: 'kingschoice', url: 'https://instagram.com/kingschoice' },
+  facebook: { handle: 'kingschoice', url: 'https://facebook.com/kingschoice' },
 };
 
 export function waLink(message: string): string {
   return `https://wa.me/${BUSINESS.phoneIntl}?text=${encodeURIComponent(message)}`;
 }
 
-export function waOrderLink(productName: string): string {
-  return waLink(`Hello Kingschoice Med & More, I'd like to order: ${productName}. Please share availability and price.`);
+export const WA_GENERAL_MESSAGE = "Hello Kingschoice Med & More, I'd like to inquire about your products.";
+export const generalWaLink = waLink(WA_GENERAL_MESSAGE);
+export const mailtoLink = `mailto:${BUSINESS.email}`;
+export const telLink = `tel:+${BUSINESS.phoneIntl}`;
+
+export function contactFormWaLink(name: string, contact: string, message: string): string {
+  const text = [
+    'Hello Kingschoice Med & More, I’d like to get in touch.',
+    `Name: ${name}`,
+    `Phone/Email: ${contact}`,
+    `Message: ${message}`,
+  ].join('\n');
+  return waLink(text);
 }
 
-export const generalWaLink = waLink("Hello Kingschoice Med & More, I'd like to make an enquiry.");
-export const mailtoLink = `mailto:${BUSINESS.email}`;
+export function mapsLink(address: string): string {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+}
+
+export function mapsEmbedSrc(address: string): string {
+  return `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+}

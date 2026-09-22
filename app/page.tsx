@@ -1,134 +1,190 @@
 import Link from 'next/link';
-import { BUSINESS, DELIVERY, generalWaLink } from '@/lib/constants';
+import { BUSINESS, VISION, MISSION, DELIVERY, LOCATIONS, mapsLink } from '@/lib/constants';
 import { categories } from '@/lib/products';
-import { WhatsAppIcon, TruckIcon, CheckIcon, PinIcon } from '@/components/icons';
-
-const highlights = [
-  'Genuine medical & laboratory equipment',
-  'Free delivery within Lagos',
-  '3 locations across Lagos & Enugu',
-  'Order directly on WhatsApp, no forms',
-];
+import WhatsAppCTA from '@/components/WhatsAppCTA';
+import Reveal from '@/components/Reveal';
+import { categoryIcons } from '@/components/categoryIcons';
+import { TruckIcon, PinIcon, ExternalLinkIcon, CheckIcon } from '@/components/icons';
 
 export default function HomePage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-offwhite to-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-24">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-teal">{BUSINESS.motto}</p>
-            <h1 className="mt-3 text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-5xl">
-              Medical &amp; Laboratory Equipment, Delivered Across Nigeria
-            </h1>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-slate-600">
-              {BUSINESS.name} supplies hospitals, clinics and laboratories with lab equipment,
-              diagnostics, test kits and pharmaceutical consumables. No cart, no checkout
-              &mdash; message us on WhatsApp and we&apos;ll sort out the rest.
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-brand-dark">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+            backgroundSize: '28px 28px',
+          }}
+        />
+        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
+              {BUSINESS.motto}
             </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={generalWaLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1fb958]"
-              >
-                <WhatsAppIcon className="h-5 w-5" />
-                Chat on WhatsApp
-              </a>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+              Laboratory Equipment &amp; Medical Consumables, Delivered Across Nigeria
+            </h1>
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+              {BUSINESS.name} supplies hospitals, clinics, laboratories and pharmacies with
+              genuine equipment, consumables and general merchandise &mdash; backed by prompt,
+              professional delivery.
+            </p>
+          </Reveal>
+          <Reveal delay={240}>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <WhatsAppCTA size="lg" label="Chat on WhatsApp" />
               <Link
                 href="/products"
-                className="inline-flex items-center justify-center rounded-lg border border-navy px-6 py-3 text-sm font-semibold text-navy transition hover:bg-navy hover:text-white"
+                className="inline-flex items-center justify-center rounded-lg border-2 border-white/30 px-7 py-3.5 text-base font-semibold text-white transition hover:border-white hover:bg-white/10"
               >
                 Browse Products
               </Link>
             </div>
+          </Reveal>
+        </div>
+      </section>
 
-            <ul className="mt-8 grid gap-2.5 sm:grid-cols-2">
-              {highlights.map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-slate-700">
-                  <CheckIcon className="h-4 w-4 shrink-0 text-teal" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+      {/* Delivery banner */}
+      <section className="border-b border-black/5 bg-brand-light">
+        <div className="mx-auto grid max-w-6xl gap-4 px-4 py-6 sm:grid-cols-2 sm:px-6">
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-white">
+              <TruckIcon className="h-5 w-5" />
+            </span>
+            <p className="text-sm text-ink">
+              <span className="font-semibold text-brand">{DELIVERY.lagos.price}</span> within
+              Lagos &mdash; {DELIVERY.lagos.time.toLowerCase()}
+            </p>
           </div>
-
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
-              Why buyers choose us
-            </h2>
-            <div className="mt-4 space-y-4">
-              <div className="flex gap-3 rounded-xl bg-offwhite p-4">
-                <TruckIcon className="h-6 w-6 shrink-0 text-blue" />
-                <div>
-                  <p className="text-sm font-semibold text-ink">{DELIVERY.lagos}</p>
-                  <p className="text-sm text-slate-600">{DELIVERY.outsideLagos}</p>
-                </div>
-              </div>
-              <div className="flex gap-3 rounded-xl bg-offwhite p-4">
-                <PinIcon className="h-6 w-6 shrink-0 text-blue" />
-                <div>
-                  <p className="text-sm font-semibold text-ink">Three locations</p>
-                  <p className="text-sm text-slate-600">Lagos Island, Lagos Mainland &amp; Enugu.</p>
-                </div>
-              </div>
-              <div className="flex gap-3 rounded-xl bg-offwhite p-4">
-                <WhatsAppIcon className="h-6 w-6 shrink-0 text-blue" />
-                <div>
-                  <p className="text-sm font-semibold text-ink">Order in seconds</p>
-                  <p className="text-sm text-slate-600">Tap a product, send the pre-filled WhatsApp message.</p>
-                </div>
-              </div>
-            </div>
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-white">
+              <TruckIcon className="h-5 w-5" />
+            </span>
+            <p className="text-sm text-ink">
+              <span className="font-semibold text-accent">{DELIVERY.outsideLagos.price}</span>{' '}
+              outside Lagos &mdash; {DELIVERY.outsideLagos.time.toLowerCase()}
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <h2 className="text-2xl font-bold text-navy sm:text-3xl">What We Supply</h2>
-            <p className="mt-2 max-w-xl text-sm text-slate-600">
-              Laboratory equipment, diagnostics, test kits and pharmaceutical consumables
-              &mdash; browse the full catalogue and order any item on WhatsApp.
-            </p>
+      {/* Category grid */}
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <Reveal>
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-brand">Catalogue</p>
+              <h2 className="mt-2 text-2xl font-bold text-ink sm:text-3xl">What We Supply</h2>
+            </div>
+            <Link href="/products" className="text-sm font-semibold text-brand hover:underline">
+              View all products &rarr;
+            </Link>
           </div>
-          <Link href="/products" className="text-sm font-semibold text-blue hover:underline">
-            View all products &rarr;
-          </Link>
-        </div>
+        </Reveal>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((cat) => (
-            <Link
-              key={cat.slug}
-              href={`/products#${cat.slug}`}
-              className="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-blue hover:shadow-md"
-            >
-              <h3 className="text-base font-semibold text-ink group-hover:text-blue">{cat.name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{cat.description}</p>
-            </Link>
+          {categories.map((cat, i) => {
+            const Icon = categoryIcons[cat.slug];
+            return (
+              <Reveal key={cat.slug} delay={i * 60}>
+                <Link
+                  href={`/products#${cat.slug}`}
+                  className="group flex h-full flex-col rounded-xl border border-black/5 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-md"
+                >
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-light text-brand transition group-hover:bg-brand group-hover:text-white">
+                    {Icon ? <Icon className="h-5 w-5" /> : null}
+                  </span>
+                  <h3 className="mt-4 text-base font-semibold text-ink group-hover:text-brand">
+                    {cat.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink/60">{cat.description}</p>
+                </Link>
+              </Reveal>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="bg-offwhite">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+          <div className="grid gap-10 md:grid-cols-2">
+            <Reveal>
+              <div className="h-full rounded-2xl border border-black/5 bg-white p-8 shadow-sm">
+                <p className="text-sm font-semibold uppercase tracking-wide text-brand">Our Vision</p>
+                <p className="mt-4 text-lg leading-relaxed text-ink">{VISION}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="h-full rounded-2xl border border-black/5 bg-white p-8 shadow-sm">
+                <p className="text-sm font-semibold uppercase tracking-wide text-brand">Our Mission</p>
+                <ul className="mt-4 space-y-3">
+                  {MISSION.slice(0, 3).map((item) => (
+                    <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-ink/80">
+                      <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/about" className="mt-4 inline-block text-sm font-semibold text-brand hover:underline">
+                  Read our full mission &rarr;
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Locations preview */}
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <Reveal>
+          <p className="text-sm font-semibold uppercase tracking-wide text-brand">Where We Are</p>
+          <h2 className="mt-2 text-2xl font-bold text-ink sm:text-3xl">Our Locations</h2>
+        </Reveal>
+        <div className="mt-8 grid gap-5 sm:grid-cols-3">
+          {LOCATIONS.map((loc, i) => (
+            <Reveal key={loc.name} delay={i * 80}>
+              <div className="flex h-full flex-col rounded-xl border border-black/5 bg-white p-6 shadow-sm">
+                <PinIcon className="h-6 w-6 text-brand" />
+                <h3 className="mt-3 text-base font-semibold text-ink">{loc.name}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/60">{loc.address}</p>
+                <a
+                  href={mapsLink(loc.address)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
+                >
+                  Get Directions
+                  <ExternalLinkIcon className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="bg-navy">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-14 text-center sm:px-6">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">Need equipment for your facility?</h2>
-          <p className="max-w-xl text-sm text-white/70">
-            Tell us what you need and we&apos;ll confirm pricing and availability on WhatsApp &mdash;
-            usually within minutes.
-          </p>
-          <a
-            href={generalWaLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1fb958]"
-          >
-            <WhatsAppIcon className="h-5 w-5" />
-            Message Us Now
-          </a>
+      {/* Closing CTA */}
+      <section className="bg-brand-dark">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-4 py-16 text-center sm:px-6">
+          <Reveal>
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">Need equipment or supplies?</h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="max-w-xl text-sm text-white/70">
+              Tell us what you need and we&apos;ll confirm availability on WhatsApp &mdash;
+              usually within minutes.
+            </p>
+          </Reveal>
+          <Reveal delay={160}>
+            <WhatsAppCTA size="lg" />
+          </Reveal>
         </div>
       </section>
     </>
