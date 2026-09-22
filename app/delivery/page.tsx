@@ -54,10 +54,10 @@ export default function DeliveryPage() {
           </div>
         </Reveal>
         <Reveal delay={100}>
-          <div className="h-full rounded-2xl border-2 border-accent/20 bg-white p-7 shadow-sm">
-            <TruckIcon className="h-8 w-8 text-accent" />
+          <div className="h-full rounded-2xl border-2 border-amber-500/20 bg-white p-7 shadow-sm">
+            <TruckIcon className="h-8 w-8 text-amber-500" />
             <h2 className="mt-4 text-lg font-semibold text-ink">{DELIVERY.outsideLagos.heading}</h2>
-            <p className="mt-3 text-3xl font-bold text-accent">{DELIVERY.outsideLagos.price}</p>
+            <p className="mt-3 text-3xl font-bold text-amber-600">{DELIVERY.outsideLagos.price}</p>
             <p className="mt-2 text-sm font-medium text-ink/70">{DELIVERY.outsideLagos.time}</p>
             <p className="mt-4 text-sm leading-relaxed text-ink/60">
               Orders delivered outside Lagos State receive a 30% discount on the standard
@@ -73,7 +73,7 @@ export default function DeliveryPage() {
       <div className="mt-6 grid gap-5 sm:grid-cols-3">
         {steps.map((step, i) => (
           <Reveal key={step.title} delay={i * 100}>
-            <div className="h-full rounded-xl border border-black/5 bg-white p-6 shadow-sm">
+            <div className="h-full rounded-xl border border-black/10 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
               <div className="flex items-center gap-3">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-bold text-white">
                   {i + 1}

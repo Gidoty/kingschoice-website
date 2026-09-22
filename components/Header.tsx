@@ -24,9 +24,9 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <Image src="/logo-icon.png" alt="Kingschoice Med & More" width={42} height={42} className="h-10 w-10" priority />
-          <span className="flex flex-col leading-tight">
-            <span className="text-base font-bold tracking-tight text-brand">Kingschoice</span>
-            <span className="text-xs font-medium text-ink/60">Med &amp; More</span>
+          <span className="flex flex-col gap-0.5">
+            <span className="text-base font-bold leading-none tracking-tight text-brand">Kingschoice</span>
+            <span className="text-xs font-medium leading-none tracking-wide text-ink/60">Med &amp; More</span>
           </span>
         </Link>
 

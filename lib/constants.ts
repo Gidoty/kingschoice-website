@@ -15,7 +15,7 @@ export const LOCATIONS = [
   },
   {
     name: 'Lagos Mainland',
-    address: '22, Mike Maduabuchi Street, Ago Palace, Okota, Lagos',
+    address: '154 Folbol Plaza, beside AP Filling Station, Ago Palace, Okota, Lagos',
   },
   {
     name: 'Enugu',

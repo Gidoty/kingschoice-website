@@ -35,11 +35,11 @@ export default function ProductsExplorer() {
     <div>
       <div className="sticky top-[64px] z-30 -mx-4 border-b border-black/5 bg-white/95 px-4 py-4 backdrop-blur sm:top-[68px] sm:mx-0 sm:rounded-xl sm:border sm:px-4 sm:shadow-sm">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap gap-2">
+          <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden">
             <button
               type="button"
               onClick={() => setActiveCategory('all')}
-              className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
+              className={`shrink-0 whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition ${
                 activeCategory === 'all'
                   ? 'bg-brand text-white'
                   : 'border border-black/10 text-ink/70 hover:border-brand hover:text-brand'
@@ -52,7 +52,7 @@ export default function ProductsExplorer() {
                 key={cat.slug}
                 type="button"
                 onClick={() => setActiveCategory(cat.slug)}
-                className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
+                className={`shrink-0 whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition ${
                   activeCategory === cat.slug
                     ? 'bg-brand text-white'
                     : 'border border-black/10 text-ink/70 hover:border-brand hover:text-brand'

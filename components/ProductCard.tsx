@@ -3,7 +3,7 @@ import type { Product } from '@/lib/products';
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="group overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <div className="group overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-md">
       <div className="relative aspect-square overflow-hidden bg-offwhite">
         <Image
           src={product.image}

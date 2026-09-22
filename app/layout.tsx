@@ -50,9 +50,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="flex min-h-screen flex-col bg-white font-sans text-ink">
+      <body className="flex min-h-screen flex-col bg-ink font-sans text-ink">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="bg-white">{children}</main>
         <Footer />
         <WhatsAppFAB />
       </body>

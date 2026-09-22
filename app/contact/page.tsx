@@ -29,7 +29,7 @@ export default function ContactPage() {
                 href={generalWaLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-xl border border-black/5 bg-white p-4 shadow-sm transition hover:border-whatsapp hover:shadow-md"
+                className="flex items-center gap-3 rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:border-whatsapp hover:shadow-md"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-whatsapp/10 text-whatsapp">
                   <WhatsAppIcon className="h-5 w-5" />
@@ -41,7 +41,7 @@ export default function ContactPage() {
               </a>
               <a
                 href={telLink}
-                className="flex items-center gap-3 rounded-xl border border-black/5 bg-white p-4 shadow-sm transition hover:border-brand hover:shadow-md"
+                className="flex items-center gap-3 rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:border-brand hover:shadow-md"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand">
                   <PhoneIcon className="h-5 w-5" />
@@ -53,7 +53,7 @@ export default function ContactPage() {
               </a>
               <a
                 href={mailtoLink}
-                className="flex items-center gap-3 rounded-xl border border-black/5 bg-white p-4 shadow-sm transition hover:border-brand hover:shadow-md"
+                className="flex items-center gap-3 rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:border-brand hover:shadow-md"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand">
                   <MailIcon className="h-5 w-5" />
@@ -63,7 +63,7 @@ export default function ContactPage() {
                   <p className="text-sm text-ink/60">{BUSINESS.email}</p>
                 </div>
               </a>
-              <div className="flex items-center gap-3 rounded-xl border border-black/5 bg-white p-4 shadow-sm">
+              <div className="flex items-center gap-3 rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:shadow-md">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand">
                   <span className="text-xs font-bold">BN</span>
                 </div>
@@ -76,7 +76,7 @@ export default function ContactPage() {
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="mt-4 flex items-center gap-3 rounded-xl border border-black/5 bg-white p-4 shadow-sm">
+            <div className="mt-4 flex items-center gap-3 rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:shadow-md">
               <span className="text-sm font-medium text-ink/70">Follow us:</span>
               <a
                 href={SOCIAL.facebook.url}
@@ -101,7 +101,7 @@ export default function ContactPage() {
         </div>
 
         <Reveal delay={150} className="lg:col-span-3">
-          <div className="rounded-xl border border-black/5 bg-white p-6 shadow-sm">
+          <div className="rounded-xl border border-black/10 bg-white p-6 shadow-sm">
             <h2 className="text-lg font-bold text-ink">Send us a message</h2>
             <p className="mt-1.5 text-sm text-ink/60">
               Fill this in and it opens as a WhatsApp message to us &mdash; no data leaves your device otherwise.
@@ -119,7 +119,7 @@ export default function ContactPage() {
       <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {LOCATIONS.map((loc, i) => (
           <Reveal key={loc.name} delay={i * 100}>
-            <div className="overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm">
+            <div className="overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
               <div className="h-44 w-full bg-offwhite">
                 <iframe
                   title={`Map to ${loc.name}`}

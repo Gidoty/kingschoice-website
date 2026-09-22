@@ -14,7 +14,7 @@ export default function ProductsPage() {
   return (
     <div>
       <div className="border-b border-black/5 bg-offwhite">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-wide text-brand">Catalogue</p>
             <h1 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">Products</h1>

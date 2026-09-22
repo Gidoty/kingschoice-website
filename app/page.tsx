@@ -1,16 +1,59 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { BUSINESS, VISION, MISSION, DELIVERY, LOCATIONS, mapsLink } from '@/lib/constants';
 import { categories } from '@/lib/products';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
 import Reveal from '@/components/Reveal';
 import { categoryIcons } from '@/components/categoryIcons';
-import { TruckIcon, PinIcon, ExternalLinkIcon, CheckIcon } from '@/components/icons';
+import { TruckIcon, PinIcon, ExternalLinkIcon, CheckIcon, ShieldIcon, WhatsAppIcon } from '@/components/icons';
+
+const categoryImages: Record<string, string> = {
+  'laboratory-equipment': '/images/products/centrifuge.jpg',
+  'diagnostic-devices': '/images/products/glucometer.jpg',
+  'consumables-supplies': '/images/products/conical-flasks.jpg',
+  'reagents-test-kits': '/images/products/test-strips.jpg',
+  'ppe-safety': '/images/products/surgical-hand-gloves.jpg',
+};
+
+const differentiators = [
+  {
+    icon: TruckIcon,
+    title: 'Same-day Lagos delivery',
+    body: 'Orders within Lagos are delivered free, same day or within 24 hours.',
+  },
+  {
+    icon: ShieldIcon,
+    title: 'Genuine, sourced equipment',
+    body: 'We source directly from trusted manufacturers and distributors — nothing counterfeit.',
+  },
+  {
+    icon: PinIcon,
+    title: 'Three physical locations',
+    body: 'Lagos Island, Lagos Mainland and Enugu — real premises, not just a phone number.',
+  },
+  {
+    icon: WhatsAppIcon,
+    title: 'Direct WhatsApp support',
+    body: 'Message us and reach a person, not a ticket queue — usually within minutes.',
+  },
+];
 
 export default function HomePage() {
   return (
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-dark">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/products/hematology-analyzer.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-25"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/95 to-brand-dark/60" />
+        </div>
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
           style={{
@@ -64,11 +107,11 @@ export default function HomePage() {
             </p>
           </div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-white">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 text-white">
               <TruckIcon className="h-5 w-5" />
             </span>
             <p className="text-sm text-ink">
-              <span className="font-semibold text-accent">{DELIVERY.outsideLagos.price}</span>{' '}
+              <span className="font-semibold text-amber-600">{DELIVERY.outsideLagos.price}</span>{' '}
               outside Lagos &mdash; {DELIVERY.outsideLagos.time.toLowerCase()}
             </p>
           </div>
@@ -92,19 +135,40 @@ export default function HomePage() {
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((cat, i) => {
             const Icon = categoryIcons[cat.slug];
+            const image = categoryImages[cat.slug];
             return (
               <Reveal key={cat.slug} delay={i * 60}>
                 <Link
                   href={`/products#${cat.slug}`}
-                  className="group flex h-full flex-col rounded-xl border border-black/5 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-md"
+                  className="group flex h-full flex-col overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-md"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-light text-brand transition group-hover:bg-brand group-hover:text-white">
-                    {Icon ? <Icon className="h-5 w-5" /> : null}
-                  </span>
-                  <h3 className="mt-4 text-base font-semibold text-ink group-hover:text-brand">
-                    {cat.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink/60">{cat.description}</p>
+                  {image ? (
+                    <div className="relative h-36 w-full overflow-hidden bg-offwhite">
+                      <Image
+                        src={image}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+                      <span className="absolute bottom-3 left-3 flex h-9 w-9 items-center justify-center rounded-lg bg-white/90 text-brand backdrop-blur">
+                        {Icon ? <Icon className="h-4 w-4" /> : null}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="flex h-36 w-full items-center justify-center bg-brand-light">
+                      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-brand shadow-sm">
+                        {Icon ? <Icon className="h-6 w-6" /> : null}
+                      </span>
+                    </div>
+                  )}
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="text-base font-semibold text-ink group-hover:text-brand">
+                      {cat.name}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink/60">{cat.description}</p>
+                  </div>
                 </Link>
               </Reveal>
             );
@@ -112,18 +176,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Why Kingschoice */}
       <section className="bg-offwhite">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-wide text-brand">Why Kingschoice</p>
+            <h2 className="mt-2 text-2xl font-bold text-ink sm:text-3xl">Built for how hospitals and labs actually buy</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {differentiators.map((d, i) => (
+              <Reveal key={d.title} delay={i * 80}>
+                <div className="h-full rounded-xl border border-black/10 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-light text-brand">
+                    <d.icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-4 text-base font-semibold text-ink">{d.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink/60">{d.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <div className="grid gap-10 md:grid-cols-2">
             <Reveal>
-              <div className="h-full rounded-2xl border border-black/5 bg-white p-8 shadow-sm">
+              <div className="h-full rounded-2xl border border-black/10 bg-white p-8 shadow-sm transition hover:shadow-md">
                 <p className="text-sm font-semibold uppercase tracking-wide text-brand">Our Vision</p>
                 <p className="mt-4 text-lg leading-relaxed text-ink">{VISION}</p>
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <div className="h-full rounded-2xl border border-black/5 bg-white p-8 shadow-sm">
+              <div className="h-full rounded-2xl border border-black/10 bg-white p-8 shadow-sm transition hover:shadow-md">
                 <p className="text-sm font-semibold uppercase tracking-wide text-brand">Our Mission</p>
                 <ul className="mt-4 space-y-3">
                   {MISSION.slice(0, 3).map((item) => (
@@ -151,7 +238,7 @@ export default function HomePage() {
         <div className="mt-8 grid gap-5 sm:grid-cols-3">
           {LOCATIONS.map((loc, i) => (
             <Reveal key={loc.name} delay={i * 80}>
-              <div className="flex h-full flex-col rounded-xl border border-black/5 bg-white p-6 shadow-sm">
+              <div className="flex h-full flex-col rounded-xl border border-black/10 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
                 <PinIcon className="h-6 w-6 text-brand" />
                 <h3 className="mt-3 text-base font-semibold text-ink">{loc.name}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/60">{loc.address}</p>
