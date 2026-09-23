@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { MenuIcon, CloseIcon, ChevronDownIcon } from './icons';
 import WhatsAppCTA from './WhatsAppCTA';
+import { BUSINESS, BRAND_WORDMARK } from '@/lib/constants';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -41,11 +42,16 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Image src="/logo-icon.png" alt="Kingschoice Med & More" width={42} height={42} className="h-10 w-10" priority />
-          <span className="flex flex-col gap-0.5">
-            <span className="text-base font-bold leading-none tracking-tight text-brand">Kingschoice</span>
-            <span className="text-xs font-medium leading-none tracking-wide text-ink/60">Med &amp; More</span>
+        <Link
+          href="/"
+          className="flex items-center gap-2.5"
+          onClick={() => setOpen(false)}
+          aria-label={BUSINESS.name}
+        >
+          <Image src="/logo-icon.png" alt="" width={42} height={42} className="h-10 w-10" priority />
+          <span className="flex flex-col gap-0.5" aria-hidden="true">
+            <span className="text-base font-bold leading-none tracking-tight text-brand">{BRAND_WORDMARK.line1}</span>
+            <span className="text-xs font-semibold leading-none tracking-wide text-ink/60">{BRAND_WORDMARK.line2}</span>
           </span>
         </Link>
 

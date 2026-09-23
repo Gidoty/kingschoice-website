@@ -3,9 +3,19 @@ export const BUSINESS = {
   motto: 'Excellence Redefined',
   phoneDisplay: '0813 239 9423',
   phoneIntl: '2348132399423',
+  phoneSecondaryDisplay: '0902 121 6264',
+  phoneSecondaryIntl: '2349021216264',
   email: 'kingschoicemedicals@gmail.com',
   bn: '3211826',
   tagline: 'Distributors of laboratory equipment, pharmaceutical & health consumables and general merchandise',
+};
+
+// Wordmark display for the logo lockup (Header/Footer) only — all caps with the
+// brand's stylised "$" in place of "&", matching the client's printed logo.
+// Body copy, metadata and structured data keep the plain accessible BUSINESS.name.
+export const BRAND_WORDMARK = {
+  line1: 'KINGSCHOICE',
+  line2: 'MED $ MORE',
 };
 
 export const LOCATIONS = [
@@ -52,14 +62,20 @@ export const SOCIAL = {
   facebook: { handle: 'kingschoice', url: 'https://facebook.com/kingschoice' },
 };
 
+function waLinkTo(phone: string, message: string): string {
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
 export function waLink(message: string): string {
-  return `https://wa.me/${BUSINESS.phoneIntl}?text=${encodeURIComponent(message)}`;
+  return waLinkTo(BUSINESS.phoneIntl, message);
 }
 
 export const WA_GENERAL_MESSAGE = "Hello Kingschoice Med & More, I'd like to inquire about your products.";
 export const generalWaLink = waLink(WA_GENERAL_MESSAGE);
+export const generalWaLinkSecondary = waLinkTo(BUSINESS.phoneSecondaryIntl, WA_GENERAL_MESSAGE);
 export const mailtoLink = `mailto:${BUSINESS.email}`;
 export const telLink = `tel:+${BUSINESS.phoneIntl}`;
+export const telLinkSecondary = `tel:+${BUSINESS.phoneSecondaryIntl}`;
 
 export function contactFormWaLink(name: string, contact: string, message: string): string {
   const text = [

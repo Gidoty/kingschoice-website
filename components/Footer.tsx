@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { BUSINESS, LOCATIONS, SOCIAL, mailtoLink, telLink } from '@/lib/constants';
+import { BUSINESS, BRAND_WORDMARK, LOCATIONS, SOCIAL, mailtoLink, telLink, telLinkSecondary } from '@/lib/constants';
 import { PhoneIcon, MailIcon, PinIcon, FacebookIcon, InstagramIcon } from './icons';
 
 export default function Footer() {
@@ -10,7 +10,10 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-2.5">
             <Image src="/logo-icon.png" alt="" width={38} height={38} className="h-9 w-9" />
-            <span className="text-lg font-bold">{BUSINESS.name}</span>
+            <span aria-label={BUSINESS.name}>
+              <span aria-hidden="true" className="block text-lg font-bold leading-tight">{BRAND_WORDMARK.line1}</span>
+              <span aria-hidden="true" className="block text-sm font-semibold leading-tight text-white/80">{BRAND_WORDMARK.line2}</span>
+            </span>
           </div>
           <p className="mt-3 text-sm italic text-white/60">{BUSINESS.motto}</p>
           <p className="mt-4 text-xs text-white/40">BN: {BUSINESS.bn}</p>
@@ -55,6 +58,10 @@ export default function Footer() {
             <li className="flex items-center gap-2">
               <PhoneIcon className="h-4 w-4 shrink-0" />
               <a href={telLink} className="hover:text-white">{BUSINESS.phoneDisplay}</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <PhoneIcon className="h-4 w-4 shrink-0" />
+              <a href={telLinkSecondary} className="hover:text-white">{BUSINESS.phoneSecondaryDisplay}</a>
             </li>
             <li className="flex items-center gap-2">
               <MailIcon className="h-4 w-4 shrink-0" />

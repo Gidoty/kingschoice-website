@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { BUSINESS, LOCATIONS, SOCIAL, generalWaLink, mailtoLink, telLink, mapsEmbedSrc, mapsLink } from '@/lib/constants';
+import { BUSINESS, LOCATIONS, SOCIAL, generalWaLink, generalWaLinkSecondary, mailtoLink, telLink, telLinkSecondary, mapsEmbedSrc, mapsLink } from '@/lib/constants';
 import Reveal from '@/components/Reveal';
 import ContactForm from '@/components/ContactForm';
 import { WhatsAppIcon, PhoneIcon, MailIcon, PinIcon, FacebookIcon, InstagramIcon, ExternalLinkIcon } from '@/components/icons';
@@ -25,32 +25,34 @@ export default function ContactPage() {
         <div className="lg:col-span-2">
           <Reveal>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-              <a
-                href={generalWaLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:border-whatsapp hover:shadow-md"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-whatsapp/10 text-whatsapp">
-                  <WhatsAppIcon className="h-5 w-5" />
-                </span>
-                <div>
+              <div className="rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:border-whatsapp hover:shadow-md">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-whatsapp/10 text-whatsapp">
+                    <WhatsAppIcon className="h-5 w-5" />
+                  </span>
                   <p className="text-sm font-semibold text-ink">WhatsApp</p>
-                  <p className="text-sm text-ink/60">{BUSINESS.phoneDisplay}</p>
                 </div>
-              </a>
-              <a
-                href={telLink}
-                className="flex items-center gap-3 rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:border-brand hover:shadow-md"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand">
-                  <PhoneIcon className="h-5 w-5" />
-                </span>
-                <div>
+                <div className="mt-2.5 flex flex-col gap-1 pl-[52px] text-sm text-ink/60">
+                  <a href={generalWaLink} target="_blank" rel="noopener noreferrer" className="hover:text-whatsapp">
+                    {BUSINESS.phoneDisplay}
+                  </a>
+                  <a href={generalWaLinkSecondary} target="_blank" rel="noopener noreferrer" className="hover:text-whatsapp">
+                    {BUSINESS.phoneSecondaryDisplay}
+                  </a>
+                </div>
+              </div>
+              <div className="rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:border-brand hover:shadow-md">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand">
+                    <PhoneIcon className="h-5 w-5" />
+                  </span>
                   <p className="text-sm font-semibold text-ink">Call Us</p>
-                  <p className="text-sm text-ink/60">{BUSINESS.phoneDisplay}</p>
                 </div>
-              </a>
+                <div className="mt-2.5 flex flex-col gap-1 pl-[52px] text-sm text-ink/60">
+                  <a href={telLink} className="hover:text-brand">{BUSINESS.phoneDisplay}</a>
+                  <a href={telLinkSecondary} className="hover:text-brand">{BUSINESS.phoneSecondaryDisplay}</a>
+                </div>
+              </div>
               <a
                 href={mailtoLink}
                 className="flex items-center gap-3 rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:border-brand hover:shadow-md"
