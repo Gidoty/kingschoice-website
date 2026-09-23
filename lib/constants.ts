@@ -59,6 +59,10 @@ export const MISSION = [
   'Build strong, professional partnerships within healthcare and education.',
 ];
 
+export const SOCIAL = {
+  facebook: { url: 'https://www.facebook.com/share/1F5ZCe229J/' },
+};
+
 function waLinkTo(phone: string, message: string): string {
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
