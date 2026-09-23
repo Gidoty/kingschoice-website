@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { MenuIcon, CloseIcon, ChevronDownIcon } from './icons';
+import { MenuIcon, CloseIcon, ChevronDownIcon, RodOfAsclepiusIcon } from './icons';
 import WhatsAppCTA from './WhatsAppCTA';
 import { BUSINESS, BRAND_WORDMARK } from '@/lib/constants';
 
@@ -51,7 +51,11 @@ export default function Header() {
           <Image src="/logo-icon.png" alt="" width={42} height={42} className="h-10 w-10" priority />
           <span className="flex flex-col gap-0.5" aria-hidden="true">
             <span className="text-base font-bold leading-none tracking-tight text-brand">{BRAND_WORDMARK.line1}</span>
-            <span className="text-xs font-semibold leading-none tracking-wide text-ink/60">{BRAND_WORDMARK.line2}</span>
+            <span className="flex items-center gap-[3px] text-xs font-semibold leading-none tracking-wide text-ink/60">
+              {BRAND_WORDMARK.line2Before}
+              <RodOfAsclepiusIcon className="h-3.5 w-3.5 text-accent" />
+              {BRAND_WORDMARK.line2After}
+            </span>
           </span>
         </Link>
 

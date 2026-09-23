@@ -10,12 +10,14 @@ export const BUSINESS = {
   tagline: 'Distributors of laboratory equipment, pharmaceutical & health consumables and general merchandise',
 };
 
-// Wordmark display for the logo lockup (Header/Footer) only — all caps with the
-// brand's stylised "$" in place of "&", matching the client's printed logo.
+// Wordmark display for the logo lockup (Header/Footer) only — all caps, with a
+// Rod of Asclepius icon (single serpent on a staff, the medical symbol) in
+// place of "&" between MED and MORE, matching the client's printed logo.
 // Body copy, metadata and structured data keep the plain accessible BUSINESS.name.
 export const BRAND_WORDMARK = {
   line1: 'KINGSCHOICE',
-  line2: 'MED $ MORE',
+  line2Before: 'MED',
+  line2After: 'MORE',
 };
 
 export const LOCATIONS = [

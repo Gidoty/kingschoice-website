@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BUSINESS, BRAND_WORDMARK, LOCATIONS, SOCIAL, mailtoLink, telLink, telLinkSecondary } from '@/lib/constants';
-import { PhoneIcon, MailIcon, PinIcon, FacebookIcon, InstagramIcon } from './icons';
+import { PhoneIcon, MailIcon, PinIcon, FacebookIcon, InstagramIcon, RodOfAsclepiusIcon } from './icons';
 
 export default function Footer() {
   return (
@@ -12,7 +12,11 @@ export default function Footer() {
             <Image src="/logo-icon.png" alt="" width={38} height={38} className="h-9 w-9" />
             <span aria-label={BUSINESS.name}>
               <span aria-hidden="true" className="block text-lg font-bold leading-tight">{BRAND_WORDMARK.line1}</span>
-              <span aria-hidden="true" className="block text-sm font-semibold leading-tight text-white/80">{BRAND_WORDMARK.line2}</span>
+              <span aria-hidden="true" className="flex items-center gap-1 text-sm font-semibold leading-tight text-white/80">
+                {BRAND_WORDMARK.line2Before}
+                <RodOfAsclepiusIcon className="h-3.5 w-3.5 text-accent" />
+                {BRAND_WORDMARK.line2After}
+              </span>
             </span>
           </div>
           <p className="mt-3 text-sm italic text-white/60">{BUSINESS.motto}</p>
