@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { BUSINESS, LOCATIONS, SOCIAL, generalWaLink, generalWaLinkSecondary, mailtoLink, telLink, telLinkSecondary, mapsEmbedSrc, mapsLink } from '@/lib/constants';
+import { BUSINESS, LOCATIONS, generalWaLink, generalWaLinkSecondary, mailtoLink, telLink, telLinkSecondary, mapsEmbedSrc, mapsLink } from '@/lib/constants';
 import Reveal from '@/components/Reveal';
 import ContactForm from '@/components/ContactForm';
-import { WhatsAppIcon, PhoneIcon, MailIcon, PinIcon, FacebookIcon, InstagramIcon, ExternalLinkIcon } from '@/components/icons';
+import { WhatsAppIcon, PhoneIcon, MailIcon, PinIcon, ExternalLinkIcon } from '@/components/icons';
 
 export const metadata: Metadata = {
   title: 'Locations & Contact',
@@ -77,29 +77,6 @@ export default function ContactPage() {
             </div>
           </Reveal>
 
-          <Reveal delay={100}>
-            <div className="mt-4 flex items-center gap-3 rounded-xl border border-black/10 bg-white p-4 shadow-sm transition hover:shadow-md">
-              <span className="text-sm font-medium text-ink/70">Follow us:</span>
-              <a
-                href={SOCIAL.facebook.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-light text-brand transition hover:bg-brand hover:text-white"
-              >
-                <FacebookIcon className="h-4 w-4" />
-              </a>
-              <a
-                href={SOCIAL.instagram.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-light text-brand transition hover:bg-brand hover:text-white"
-              >
-                <InstagramIcon className="h-4 w-4" />
-              </a>
-            </div>
-          </Reveal>
         </div>
 
         <Reveal delay={150} className="lg:col-span-3">

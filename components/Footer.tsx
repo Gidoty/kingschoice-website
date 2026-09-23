@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { BUSINESS, BRAND_WORDMARK, LOCATIONS, SOCIAL, mailtoLink, telLink, telLinkSecondary } from '@/lib/constants';
-import { PhoneIcon, MailIcon, PinIcon, FacebookIcon, InstagramIcon, RodOfAsclepiusIcon } from './icons';
+import { BUSINESS, BRAND_WORDMARK, LOCATIONS, mailtoLink, telLink, telLinkSecondary } from '@/lib/constants';
+import { PhoneIcon, MailIcon, PinIcon, RodOfAsclepiusIcon } from './icons';
 
 export default function Footer() {
   return (
@@ -21,26 +21,6 @@ export default function Footer() {
           </div>
           <p className="mt-3 text-sm italic text-white/60">{BUSINESS.motto}</p>
           <p className="mt-4 text-xs text-white/40">BN: {BUSINESS.bn}</p>
-          <div className="mt-5 flex items-center gap-3">
-            <a
-              href={SOCIAL.facebook.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Kingschoice Med & More on Facebook"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-brand"
-            >
-              <FacebookIcon className="h-4 w-4" />
-            </a>
-            <a
-              href={SOCIAL.instagram.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Kingschoice Med & More on Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-brand"
-            >
-              <InstagramIcon className="h-4 w-4" />
-            </a>
-          </div>
         </div>
 
         <div>

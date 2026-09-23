@@ -59,11 +59,6 @@ export const MISSION = [
   'Build strong, professional partnerships within healthcare and education.',
 ];
 
-export const SOCIAL = {
-  instagram: { handle: 'kingschoice', url: 'https://instagram.com/kingschoice' },
-  facebook: { handle: 'kingschoice', url: 'https://facebook.com/kingschoice' },
-};
-
 function waLinkTo(phone: string, message: string): string {
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
