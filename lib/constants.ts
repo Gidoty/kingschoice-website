@@ -61,6 +61,7 @@ export const MISSION = [
 
 export const SOCIAL = {
   facebook: { url: 'https://www.facebook.com/share/1F5ZCe229J/' },
+  instagram: { url: 'https://www.instagram.com/kingsmanutd/' },
 };
 
 function waLinkTo(phone: string, message: string): string {

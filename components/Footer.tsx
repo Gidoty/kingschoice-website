@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BUSINESS, BRAND_WORDMARK, LOCATIONS, SOCIAL, mailtoLink, telLink, telLinkSecondary } from '@/lib/constants';
-import { PhoneIcon, MailIcon, PinIcon, RodOfAsclepiusIcon, FacebookIcon } from './icons';
+import { PhoneIcon, MailIcon, PinIcon, RodOfAsclepiusIcon, FacebookIcon, InstagramIcon } from './icons';
 
 export default function Footer() {
   return (
@@ -27,9 +27,18 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Kingschoice Med & More on Facebook"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-brand"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-brand"
             >
-              <FacebookIcon className="h-4 w-4" />
+              <FacebookIcon className="h-5 w-5" />
+            </a>
+            <a
+              href={SOCIAL.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Kingschoice Med & More on Instagram"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-brand"
+            >
+              <InstagramIcon className="h-5 w-5" />
             </a>
           </div>
         </div>

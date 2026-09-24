@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { BUSINESS, LOCATIONS, SOCIAL, generalWaLink, generalWaLinkSecondary, mailtoLink, telLink, telLinkSecondary, mapsEmbedSrc, mapsLink } from '@/lib/constants';
 import Reveal from '@/components/Reveal';
 import ContactForm from '@/components/ContactForm';
-import { WhatsAppIcon, PhoneIcon, MailIcon, PinIcon, ExternalLinkIcon, FacebookIcon } from '@/components/icons';
+import { WhatsAppIcon, PhoneIcon, MailIcon, PinIcon, ExternalLinkIcon, FacebookIcon, InstagramIcon } from '@/components/icons';
 
 export const metadata: Metadata = {
   title: 'Locations & Contact',
@@ -85,9 +85,18 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Kingschoice Med & More on Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-light text-brand transition hover:bg-brand hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-light text-brand transition hover:bg-brand hover:text-white"
               >
-                <FacebookIcon className="h-4 w-4" />
+                <FacebookIcon className="h-5 w-5" />
+              </a>
+              <a
+                href={SOCIAL.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kingschoice Med & More on Instagram"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-light text-brand transition hover:bg-brand hover:text-white"
+              >
+                <InstagramIcon className="h-5 w-5" />
               </a>
             </div>
           </Reveal>
