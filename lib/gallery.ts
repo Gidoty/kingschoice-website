@@ -25,7 +25,8 @@ export const gallerySections: GallerySection[] = [
       { src: '/images/gallery/office-lagos-island.jpg', alt: 'Kingschoice Med & More Lagos Island office' },
       { src: '/images/gallery/office-lagos-mainland.jpg', alt: 'Kingschoice Med & More Lagos Mainland office' },
       { src: '/images/gallery/office-enugu.jpg', alt: 'Kingschoice Med & More Enugu office' },
-      { src: '/images/gallery/warehouse.jpg', alt: 'Kingschoice Med & More warehouse and stock area' },
+      { src: '/images/gallery/warehouse.jpg', alt: 'Shelves stocked with rapid test kits and lab consumables at Kingschoice Med & More' },
+      { src: '/images/gallery/warehouse-2.jpg', alt: 'Shelves stocked with pregnancy test kits and blood collection tubes at Kingschoice Med & More' },
     ],
   },
   {

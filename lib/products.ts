@@ -303,6 +303,13 @@ export const products: Product[] = [
     description: 'Non-sterile latex examination gloves, lightly powdered.',
     image: '/images/products/santaz-latex-gloves.jpg',
   },
+  {
+    slug: 'first-aid-box',
+    name: 'First Aid Box',
+    category: 'ppe-safety',
+    description: 'Metal first aid box with carry handle, for storing emergency medical supplies.',
+    image: '/images/products/first-aid-box.jpg',
+  },
   // Pharmaceuticals & General Merchandise
   {
     slug: 'vmax-body-lotion',
